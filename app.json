@@ -1,0 +1,26 @@
+{
+  "expo": {
+    "name": "Zentavos",
+    "slug": "Zentavos",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/iconSplash.png"
+    
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/iconSplash.png"
+      },
+      "package": "com.anonymous.Zentavos"
+    },
+    "web": {
+      "favicon": "./assets/iconSplash.png"
+    }
+  }
+}
