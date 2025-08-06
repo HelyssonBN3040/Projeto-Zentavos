@@ -8,11 +8,7 @@ export default function CustomDrawerContent(props) {
     return (
         <DrawerContentScrollView {...props} contentContainerStyle={styles.container}>
             <View style={styles.header}>
-                <Image
-                    source={{ uri: 'https://static.vecteezy.com/system/resources/previews/019/879/186/non_2x/user-icon-on-transparent-background-free-png.png' }} // ou use uma imagem local
-                    style={styles.avatar}
-                />
-                <Text style={styles.name}>João Silva</Text>
+                <Text style={styles.name}>Helysson Nascimento</Text>
                 <Text style={styles.subtitle}>Zentavos</Text>
             </View>
 
@@ -23,14 +19,24 @@ export default function CustomDrawerContent(props) {
                     onPress={() => props.navigation.navigate("Tabs", { screen: "Dashboard" })}
                 />
                 <DrawerItem
-                    label="Nova Transação"
-                    icon={({ color, size }) => <Feather name="plus" size={size} color={color} />}
-                    onPress={() => props.navigation.navigate("Tabs", { screen: "Nova Transação" })}
+                    label="Editar Saldo"
+                    icon={({ color, size }) => <Feather name="dollar-sign" size={size} color={color} />}
+                    onPress={() => props.navigation.navigate("Tabs", { screen: "Editar Saldo" })}
                 />
                 <DrawerItem
-                    label="Transações"
+                    label="Despesas"
                     icon={({ color, size }) => <MaterialIcons name="receipt-long" size={size} color={color} />}
-                    onPress={() => props.navigation.navigate("Tabs", { screen: "Transações" })}
+                    onPress={() => props.navigation.navigate("Tabs", { screen: "Despesas" })}
+                />
+                <DrawerItem
+                    label="Nova Despesa"
+                    icon={({ color, size }) => <Feather name="plus" size={size} color={color} />}
+                    onPress={() => props.navigation.navigate("Tabs", { screen: "Nova Despesa" })}
+                />
+                <DrawerItem
+                    label="Categorias"
+                    icon={({ color, size }) => <Feather name="list" size={size} color={color} />}
+                    onPress={() => props.navigation.navigate("Tabs", { screen: "Categorias" })}
                 />
                 {/* <DrawerItem
           label="Relatórios"
@@ -72,5 +78,5 @@ const styles = StyleSheet.create({
     avatar: { width: 80, height: 80, borderRadius: 40, marginBottom: 10 },
     name: { fontSize: 18, fontWeight: 'bold' },
     subtitle: { fontSize: 14, color: 'gray' },
-   
+
 });

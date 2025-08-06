@@ -1,127 +1,75 @@
 import React, { useState } from 'react';
+import { Switch } from 'react-native';
 import {
-    View,
-    Text,
-    StyleSheet,
-    Switch,
-    TouchableOpacity,
-    ScrollView,
-} from 'react-native';
+  Container,
+  Section,
+  SectionTitle,
+  Item,
+  ItemText,
+  SwitchRow,
+} from './style';
 
 export default function ConfigScreen() {
-    const [darkMode, setDarkMode] = useState(true);
-    const [notifications, setNotifications] = useState(true);
-    const [budgetAlerts, setBudgetAlerts] = useState(true);
+  const [darkMode, setDarkMode] = useState(true);
+  const [notifications, setNotifications] = useState(true);
+  const [budgetAlerts, setBudgetAlerts] = useState(true);
 
-    return (
-        <ScrollView style={styles.container}>
+  return (
+    <Container>
 
-            {/* Seção: Conta */}
-            <View style={styles.section}>
-                <Text style={styles.sectionTitle}>Conta</Text>
-                <TouchableOpacity style={styles.item}>
-                    <Text style={styles.itemText}>Editar Perfil</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.item}>
-                    <Text style={styles.itemText}>Alterar Senha</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.item}>
-                    <Text style={styles.itemText}>Sair da Conta</Text>
-                </TouchableOpacity>
-            </View>
+      {/* Seção: Conta */}
+      <Section>
+        <SectionTitle>Conta</SectionTitle>
+        <Item><ItemText>Editar Perfil</ItemText></Item>
+        <Item><ItemText>Alterar Senha</ItemText></Item>
+        <Item><ItemText>Sair da Conta</ItemText></Item>
+      </Section>
 
-            {/* Seção: Preferências */}
-            <View style={styles.section}>
-                <Text style={styles.sectionTitle}>Preferências</Text>
-                <View style={styles.switchRow}>
-                    <Text style={styles.itemText}>Tema</Text>
-                    <Switch
-                        value={darkMode}
-                        onValueChange={setDarkMode}
-                        trackColor={{ false: '#ccc', true: '#43B38E' }}
-                        thumbColor={darkMode ? '#fff' : '#fff'}
-                    />
-                </View>
-                <TouchableOpacity style={styles.item}>
-                    <Text style={styles.itemText}>Idioma</Text>
-                </TouchableOpacity>
-            </View>
+      {/* Seção: Preferências */}
+      <Section>
+        <SectionTitle>Preferências</SectionTitle>
+        <SwitchRow>
+          <ItemText>Tema</ItemText>
+          <Switch
+            value={darkMode}
+            onValueChange={setDarkMode}
+            trackColor={{ false: '#ccc', true: '#43B38E' }}
+            thumbColor={darkMode ? '#fff' : '#fff'}
+          />
+        </SwitchRow>
+        <Item><ItemText>Idioma</ItemText></Item>
+      </Section>
 
-            {/* Seção: Notificações */}
-            <View style={styles.section}>
-                <Text style={styles.sectionTitle}>Notificações</Text>
-                <View style={styles.switchRow}>
-                    <Text style={styles.itemText}>Notificações</Text>
-                    <Switch
-                        value={notifications}
-                        onValueChange={setNotifications}
-                        trackColor={{ false: '#ccc', true: '#43B38E' }}
-                        thumbColor={notifications ? '#fff' : '#fff'}
-                    />
-                </View>
-                <View style={styles.switchRow}>
-                    <Text style={styles.itemText}>Alertas de Orçamento</Text>
-                    <Switch
-                        value={budgetAlerts}
-                        onValueChange={setBudgetAlerts}
-                        trackColor={{ false: '#ccc', true: '#43B38E' }}
-                        thumbColor={budgetAlerts ? '#fff' : '#fff'}
-                    />
-                </View>
-            </View>
+      {/* Seção: Notificações */}
+      <Section>
+        <SectionTitle>Notificações</SectionTitle>
+        <SwitchRow>
+          <ItemText>Notificações</ItemText>
+          <Switch
+            value={notifications}
+            onValueChange={setNotifications}
+            trackColor={{ false: '#ccc', true: '#43B38E' }}
+            thumbColor={notifications ? '#fff' : '#fff'}
+          />
+        </SwitchRow>
+        <SwitchRow>
+          <ItemText>Alertas de Orçamento</ItemText>
+          <Switch
+            value={budgetAlerts}
+            onValueChange={setBudgetAlerts}
+            trackColor={{ false: '#ccc', true: '#43B38E' }}
+            thumbColor={budgetAlerts ? '#fff' : '#fff'}
+          />
+        </SwitchRow>
+      </Section>
 
-            {/* Seção: Privacidade */}
-            <View style={styles.section}>
-                <Text style={styles.sectionTitle}>Privacidade</Text>
-                <TouchableOpacity style={styles.item}>
-                    <Text style={styles.itemText}>Termos de Uso</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.item}>
-                    <Text style={styles.itemText}>Política de Privacidade</Text>
-                </TouchableOpacity>
-            </View>
-        </ScrollView>
-    );
+      {/* Seção: Privacidade */}
+      <Section>
+        <SectionTitle>Privacidade</SectionTitle>
+        <Item><ItemText>Termos de Uso</ItemText></Item>
+        <Item><ItemText>Política de Privacidade</ItemText></Item>
+      </Section>
+
+    </Container>
+  );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: 'hsl(60, 20.00%, 98.00%)',
-        paddingHorizontal: 20,
-        paddingVertical: 20,
-
-    },
-    title: {
-        fontSize: 28,
-        fontWeight: 'bold',
-        marginBottom: 30,
-    },
-    section: {
-        backgroundColor: '#fff',
-        borderRadius: 12,
-        padding: 15,
-        marginBottom: 20,
-    },
-    sectionTitle: {
-        fontSize: 16,
-        fontWeight: 'bold',
-        marginBottom: 10,
-    },
-    item: {
-        paddingVertical: 10,
-        borderTopWidth: 1,
-        borderTopColor: '#eee',
-    },
-    itemText: {
-        fontSize: 16,
-    },
-    switchRow: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        paddingVertical: 10,
-        borderTopWidth: 1,
-        borderTopColor: '#eee',
-    },
-});

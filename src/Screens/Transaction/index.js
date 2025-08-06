@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { Text, View, FlatList } from 'react-native';
+import styles from './styles';
 
 const transactions = [
   { id: '1', title: 'Groceries', amount: '-$75,00', date: 'Apr 20, 2024' },
@@ -30,45 +31,3 @@ export default function Transaction() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F7F6F3',
-    paddingHorizontal: 20,
-    paddingTop: 20,
-  },
-  listContent: {
-    paddingBottom: 20,
-  },
-  card: {
-    backgroundColor: '#fff',
-    borderRadius: 16,
-    padding: 16,
-    marginBottom: 12,
-    shadowColor: '#000',
-    shadowOpacity: 0.05,
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 6,
-    elevation: 2,
-  },
-  cardHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 6,
-  },
-  cardTitle: {
-    fontSize: 16,
-    fontWeight: '500',
-    color: '#000',
-  },
-  cardAmount: {
-    fontSize: 16,
-    fontWeight: '500',
-    color: '#000',
-  },
-  cardDate: {
-    fontSize: 14,
-    color: '#777',
-  },
-});

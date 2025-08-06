@@ -8,6 +8,8 @@ import Home from '../Screens/Home/Index';
 import NewTransaction from '../Screens/NewTransaction';
 import Transaction from '../Screens/Transaction';
 import ConfigScreen from '../Screens/Config';
+import EditBalance from '../Screens/EditBalance';
+import Category from '../Screens/Category';
 
 const Tab = createBottomTabNavigator();
 
@@ -36,7 +38,7 @@ export default function TabNavigation() {
         }}
       />
       <Tab.Screen
-        name="Transações"
+        name="Despesas"
         component={Transaction}
         options={{
           tabBarIcon: ({focused}) => (
@@ -45,7 +47,7 @@ export default function TabNavigation() {
         }}
       />
       <Tab.Screen
-        name="Nova Transação"
+        name="Nova Despesa"
         component={NewTransaction}
         options={{
           tabBarIcon: ({focused}) => (
@@ -62,6 +64,23 @@ export default function TabNavigation() {
           ),
         }}
       />
+      <Tab.Screen
+        name="Editar Saldo"
+        component={EditBalance}
+        options={{
+          tabBarButton: () => null,
+          tabBarItemStyle: { display: 'none' },
+        }}
+      />
+      <Tab.Screen
+        name="Categorias"
+        component={Category}
+        options={{
+          tabBarButton: () => null,
+          tabBarItemStyle: { display: 'none' },
+        }}
+      />
+     
     </Tab.Navigator>
 
 
